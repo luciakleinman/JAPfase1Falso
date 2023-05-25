@@ -48,7 +48,7 @@ function datosDelEstudiante() {
   //Mientras no ingresen un número, no deja de preguntar
   let puntajeIngles = NaN;
   while (isNaN(puntajeIngles)) {
-    puntajeIngles = parseInt(prompt("Ingresa en números tu puntaje en inglés: "));
+    puntajeIngles = parseInt(prompt("Ingresa abajo números tu puntaje en inglés en números. Si habías exonerado escribe 100. "));
   }
   let totalTutorias = NaN;
   while (isNaN(totalTutorias)) {
@@ -57,38 +57,38 @@ function datosDelEstudiante() {
 
   //Hago el promedio de los puntajes para obtener el status final
   //Uso .toFixed(n) para obtener dos decimales
-  let puntajeFinal = ((puntajeEvaluacionTecnica + puntajeIngles + totalTutorias * 10) / 3).toFixed(2);
+  let puntajeFinal = ((puntajeEvaluacionTecnica + puntajeIngles + totalTutorias * 8) / 3).toFixed(2);
 
   // Mostrar los resultados
   alert("¡Hola " + nombre + "!\n" +
       "Tus calificaciones en la Fase 1 son las siguientes:\n" +
-      "Puntaje en tu evaluación técnica es: " + puntajeEvaluacionTecnica + "\n" +
+      "En Introducción a la Programación, tu puntaje en tu evaluación técnica es: " + puntajeEvaluacionTecnica + "\n" +
       "Número de evidencias presentadas es: " + numeroDeEvidencias + "\n" +
       "Your score in the English course: " + puntajeIngles + "\n" +
-      "En Competencias Transversales, tu total de tutorías hechas es de " + totalTutorias * 10 + "%" + "\n" +
+      "En Competencias Transversales, tu total de tutorías hechas es de " + totalTutorias * 8 + "%" + "\n" +
       "En total " + nombre + ", tu puntaje final es de: " + puntajeFinal);
 
   alert("Te mostraremos si apruebas, desapruebas o tienes la opción del examen final.");
 
-  if (puntajeIngles >= 50 && (totalTutorias * 10) >= 100 && puntajeEvaluacionTecnica >= 60 && numeroDeEvidencias == 3) {
-    alert("¡Felicitaciones, has aprobado la Fase 1!");
+  if (puntajeIngles >= 50 && (totalTutorias * 8) >= 80 && puntajeEvaluacionTecnica >= 60 && numeroDeEvidencias == 3) {
+    alert("¡Felicitaciones, has aprobado la Fase 1! Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
     //y si no se llega a el 100% de las tutorías no se aprueba fase 1.
     //tampoco se apruba si en Inglés el puntaje es menor a 50.
-  } else if (puntajeIngles < 50 || (totalTutorias * 10) < 100) {
-    alert("Lo sentimos, no has aprobado la Fase 1.");
+  } else if (puntajeIngles < 50 || (totalTutorias * 8) <= 80) {
+    alert("Lo sentimos, no has aprobado la Fase 1. Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
     //Técnica: 30% Fundamentos de Programación + 50% Programación Imperativa + 20% Programación Orientada a Objetos
     //Se aprueba con 60+ puntos
     //si el puntaje >= 60 pero le falta alguna de las evidencias, debe rendir examen:
   } else if (puntajeEvaluacionTecnica >= 60 && numeroDeEvidencias < 3) {
     alert("Lo sentimos. Aunque tu puntaje en la evaluación técnica es de " + puntajeEvaluacionTecnica + ", no has presentado todas las entregas de evidencias.\n" +
-    "¡Pero podrás rendir un examen final! Con supervisión y debes obtener al menos un 60% para aprobar.");
+    "¡Pero podrás rendir un examen final! Con supervisión y debes obtener al menos un 60% para aprobar.\n" + "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
     //si la persona subió las 3 entregas de evidencia y su puntaje final está en el rango de 50 a 59,99 podrá rendir el examen final:
   } else if (50 >= puntajeEvaluacionTecnica < 60 && numeroDeEvidencias == 3) {
     alert("Lo sentimos, aunque has entregado todas las evidencias, tu puntaje en la evaluación técnica es de " + puntajeEvaluacionTecnica + ". \n" +
-    "¡Pero podrás rendir un examen final! Con supervisión y debes obtener al menos un 60% para aprobar.");
+    "¡Pero podrás rendir un examen final! Con supervisión y debes obtener al menos un 60% para aprobar.\n" + "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
     //Todos los otros casos reprueban fase 1.
   } else {
-    alert("Lo sentimos, no has aprobado la Fase 1.");
+    alert("Lo sentimos, no has aprobado la Fase 1.\n" + "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
   }  
 }
 // Llamar function
