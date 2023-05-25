@@ -15,10 +15,6 @@ function datosDelEstudiante() {
   //Pido datos de una persona (nombre, apellido y departamento en que vive)
   let nombre = prompt("Ingresa tu nombre: ");
     nombre = nombre[0].toUpperCase() + nombre.substring(1);
-  let apellido = prompt("Ingresa tu apellido: ");
-    apellido = apellido[0].toUpperCase() + apellido.substring(1);
-  let departamento = prompt("Ingresa tu departamento: ");
-    departamento = departamento[0].toUpperCase() + departamento.substring(1);
 
   //Pido sus puntajes de evaluciones
   //Mientras no ingresen un número, no deja de preguntar
@@ -96,7 +92,7 @@ function datosDelEstudiante() {
     alert("Lo sentimos. Aunque tu puntaje en la evaluación técnica es de " + puntajeEvaluacionTecnica + ", no has presentado todas las entregas de evidencias.\n" +
     "¡Pero podrás rendir un examen final! Con supervisión y debes obtener al menos un 60% para aprobar.\n" + "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
     //si la persona subió las 3 entregas de evidencia y su puntaje final está en el rango de 50 a 59,99 podrá rendir el examen final:
-  } else if (50 >= puntajeEvaluacionTecnica < 60 && numeroDeEvidencias == 3) {
+  } else if ((50 >= puntajeEvaluacionTecnica < 60) && numeroDeEvidencias == 3) {
     alert("Lo sentimos, aunque has entregado todas las evidencias, tu puntaje en la evaluación técnica es de " + puntajeEvaluacionTecnica + ". \n" +
     "¡Pero podrás rendir un examen final! Con supervisión y debes obtener al menos un 60% para aprobar.\n" + "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
     //Todos los otros casos reprueban fase 1.
