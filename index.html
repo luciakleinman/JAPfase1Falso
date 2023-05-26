@@ -7,7 +7,7 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <title i class="bi bi-braces">Sitio falso de JAP</title>
+    <title class="bi bi-braces">Sitio falso de JAP</title>
     
 </head>
 <body>
@@ -19,78 +19,64 @@
     <h2>Acá podrás intentar hacer los cálculos para saber si aprobaste la Fase 1 de Jóvenes a Programar edición 2023.</h2>
     <p class="lead">No es oficial, solamente es un proyecto para probar mi código.</p>
     <p class="lead">¡Mucha suerte!</p>
+    <button onclick="datosDelEstudiante()">Iniciar</button>
+        <div id="inputContainer" style="display: none;">
+            <label for="nombreInput">Ingresa tu nombre:</label>
+            <input type="text" id="nombreInput"><br>
+            
+            <label for="puntajeFundamentosInput">Ingresa tu puntaje en la evaluación de Fundamentos en la Programación:</label>
+            <input type="number" id="puntajeFundamentosInput"><br>
+            
+            <label for="puntajeImperativaInput">Ingresa tu puntaje en la evaluación de Programación Imperativa:</label>
+            <input type="number" id="puntajeImperativaInput"><br>
+            
+            <label for="puntajeProgOrientadaAObjetosInput">Ingresa tu puntaje en la evaluación de Programación Orientada a Objetos:</label>
+            <input type="number" id="puntajeProgOrientadaAObjetosInput"><br>
+            
+            <label for="evidencia1Input">¿Usted entregó la primer evidencia sobre Fundamentos? Si/No:</label>
+            <input type="text" id="evidencia1Input"><br>
+            
+            <label for="evidencia2Input">¿Usted entregó la segunda evidencia sobre Programación Imperativa? Si/No:</label>
+            <input type="text" id="evidencia2Input"><br>
+            
+            <label for="evidencia3Input">¿Usted entregó la tercer evidencia sobre Programación Orientada a Objetos? Si/No:</label>
+            <input type="text" id="evidencia3Input"><br>
+            
+            <label for="puntajeInglesInput">Ingresa abajo tu puntaje en inglés en números:</label>
+            <input type="number" id="puntajeInglesInput"><br>
+            
+            <label for="totalTutoriasInput">Ingresa en números el total de tutorías que hiciste:</label>
+            <input type="number" id="totalTutoriasInput"><br>
+        </div>
+    </div>
     <hr>
     <div class="d-grid gap-2 col-6 mx-auto">
         <p class="lead">Siempre recurre por dudas a el .pdf original brindado por nuestros tutores</p>
         <a class="btn btn-info bi bi-file-earmark-arrow-down" href="sem7\Ponderacion_de_notas_Contenidos_Tecnicos_Fase_1 (1).pdf" role="button" download="Ponderación de notas contenido técnico Fase 1">Descargá el pdf oficial</a>
     </div>
-    <br>
     <hr>
     <p>Sitio web creado por Lucía Kleinman. Mayo 2023.</p>
     <a href="https://www.linkedin.com/in/luciakleinman/">LinkedIn.</a>
-</div>
+
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var scriptTag = document.createElement('script');
-        scriptTag.innerHTML = function datosDelEstudiante() {
+        function datosDelEstudiante() {
+            document.getElementById('inputContainer').style.display = 'block';
             
-let nombre = prompt("Ingresa tu nombre: ");
-    nombre = nombre[0].toUpperCase() + nombre.substring(1);
-  let apellido = prompt("Ingresa tu apellido: ");
-    apellido = apellido[0].toUpperCase() + apellido.substring(1);
-  let departamento = prompt("Ingresa tu departamento: ");
-    departamento = departamento[0].toUpperCase() + departamento.substring(1);
-
-  //Pido sus puntajes de evaluciones
-  //Mientras no ingresen un número, no deja de preguntar
-  let puntajeFundamentos = NaN;
-  while (isNaN(puntajeFundamentos)) {
-    puntajeFundamentos = parseInt(prompt("Ingresa tu puntaje en la evaluación de Fundamentos en la Programación: "));}
-
-  let puntajeImperativa = NaN;
-  while (isNaN(puntajeImperativa)) {
-    puntajeImperativa = parseInt(prompt("Ingresa tu puntaje en la evaluación de Programación Imperativa: "));}
-
-  let puntajeProgOrientadaAObjetos = NaN;
-  while (isNaN(puntajeProgOrientadaAObjetos)) {
-  puntajeProgOrientadaAObjetos = parseInt(prompt("Inglesa tu puntaje en la evaluación de Programación Orientada a Objetos: "));}
-
-  //Promedio los puntajes sabiendo que de 100%, el 30% es de la evaluación de Fundamentos de Programación, el 50% es de la evaluación de Programación Imperativa y el 20% es de la evaluación de Programación Orientada a Objetos
-  let puntajeEvaluacionTecnica = puntajeFundamentos * 0.3 + puntajeImperativa * 0.5 + puntajeProgOrientadaAObjetos * 0.2;
-
-  //Pido sus evidencias
-  //Convierto si == 1, y no == 0
-  //Ignoro mayúsculas
-  var evidencia1 = prompt("¿Usted entregó la primer evidencia sobre Fundamentos? Si/No: ");
-  if (evidencia1.toLowerCase() === "si") {
-    evidencia1 = 1;
-  } else {
-    evidencia1 = 0;}
-  var evidencia2 = prompt("¿Usted entregó la segunda evidencia sobre Programación Imperativa? Si/No: ");
-  if (evidencia2.toLowerCase() === "si") {
-    evidencia2 = 1;
-  } else {
-    evidencia2 = 0;}
-  var evidencia3 = prompt("¿Usted entregó la tercer evidencia sobre Programación Orientada a Objetos? Si/No: ");
-  if (evidencia3.toLowerCase() === "si") {
-    evidencia3 = 1;
-  } else {
-    evidencia3 = 0;}
-  let numeroDeEvidencias = evidencia1 + evidencia2 + evidencia3;
-
-  //Pido datos de Inglés y CT
-  //Mientras no ingresen un número, no deja de preguntar
-  let puntajeIngles = NaN;
-  while (isNaN(puntajeIngles)) {
-    puntajeIngles = parseInt(prompt("Ingresa abajo números tu puntaje en inglés en números. Si habías exonerado escribe 100. "));
-  }
-  let totalTutorias = NaN;
-  while (isNaN(totalTutorias)) {
-    totalTutorias = parseInt(prompt("Ingresa en números el total de tutorías que hiciste: "));
-  }
+            // Retrieve values from input fields
+            var nombre = document.getElementById('nombreInput').value;
+            var puntajeFundamentos = parseInt(document.getElementById('puntajeFundamentosInput').value);
+            var puntajeImperativa = parseInt(document.getElementById('puntajeImperativaInput').value);
+            var puntajeProgOrientadaAObjetos = parseInt(document.getElementById('puntajeProgOrientadaAObjetosInput').value);
+            var evidencia1 = document.getElementById('evidencia1Input').value.toLowerCase() === 'si' ? 1 : 0;
+            var evidencia2 = document.getElementById('evidencia2Input').value.toLowerCase() === 'si' ? 1 : 0;
+            var evidencia3 = document.getElementById('evidencia3Input').value.toLowerCase() === 'si' ? 1 : 0;
+            var puntajeIngles = parseInt(document.getElementById('puntajeInglesInput').value);
 
   //Hago el promedio de los puntajes para obtener el status final
   //Uso .toFixed(n) para obtener dos decimales
+  let puntajeEvaluacionTecnica = puntajeFundamentos * 0.3 + puntajeImperativa * 0.5 + puntajeProgOrientadaAObjetos * 0.2;
+  let numeroDeEvidencias = evidencia1 + evidencia2 + evidencia3;
   let puntajeFinal = ((puntajeEvaluacionTecnica + puntajeIngles + totalTutorias * 8) / 3).toFixed(2);
 
   // Mostrar los resultados
@@ -99,7 +85,7 @@ let nombre = prompt("Ingresa tu nombre: ");
       "En Introducción a la Programación, tu puntaje en tu evaluación técnica es: " + puntajeEvaluacionTecnica + "\n" +
       "Número de evidencias presentadas es: " + numeroDeEvidencias + "\n" +
       "Your score in the English course: " + puntajeIngles + "\n" +
-      "En Competencias Transversales, tu total de tutorías hechas es de " + totalTutorias * 8 + "%" + "\n" +
+      "En Competencias Transversales, tu total de tutorías hechas es de " + totalTutorias + "\n" +
       "En total " + nombre + ", tu puntaje final es de: " + puntajeFinal);
 
   console.log("Te mostraremos si apruebas, desapruebas o tienes la opción del examen final.");
@@ -116,17 +102,17 @@ let nombre = prompt("Ingresa tu nombre: ");
   } else if (puntajeEvaluacionTecnica >= 60 && numeroDeEvidencias < 3) {
     console.log("Lo sentimos. Aunque tu puntaje en la evaluación técnica es de " + puntajeEvaluacionTecnica + ", no has presentado todas las entregas de evidencias.\n" +
     "¡Pero podrás rendir un examen final! Con supervisión y debes obtener al menos un 60% para aprobar.\n" + "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
-    //si la persona subió las 3 entregas de evidencia y su puntaje final está en el rango de 50 a 59,99 podrá rendir el examen final:
-  } else if (50 >= puntajeEvaluacionTecnica < 60 && numeroDeEvidencias == 3) {
-    console.log("Lo sentimos, aunque has entregado todas las evidencias, tu puntaje en la evaluación técnica es de " + puntajeEvaluacionTecnica + ". \n" +
-    "¡Pero podrás rendir un examen final! Con supervisión y debes obtener al menos un 60% para aprobar.\n" + "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
-    //Todos los otros casos reprueban fase 1.
+    //si el puntaje es menor a 60 y todas las evidencias están presentes, no se aprueba:
+  } else if (puntajeEvaluacionTecnica < 60 && numeroDeEvidencias == 3) {
+    console.log("Lo sentimos. Tu puntaje en la evaluación técnica es de " + puntajeEvaluacionTecnica + ", lo cual no es suficiente para aprobar la Fase 1.\n" +
+    "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
   } else {
-    console.log("Lo sentimos, no has aprobado la Fase 1.\n" + "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
-  }  
+    console.log("Lo sentimos. No has aprobado la Fase 1.\n" +
+    "Dado que esto es un ejemplo, espera a la segunda semana de junio para recibir tu mail de Jóvenes a Programar con tus calificaciones oficiales.");
+  }
 }
-        document.body.appendChild(scriptTag);
-    });
 </script>
+
 </body>
 </html>
+
